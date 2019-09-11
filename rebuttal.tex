@@ -1,0 +1,150 @@
+% LaTeX rebuttal letter example. 
+% 
+
+% Heavily based on template by Friedemann Zenke (fzenke.net), who themself based their template on
+% examples by Dirk Eddelbuettel, Fran and others from 
+% https://tex.stackexchange.com/questions/2317/latex-style-or-macro-for-detailed-response-to-referee-report
+
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage,xcolor}
+\usepackage[hidelinks=True]{hyperref}
+
+% package needed for optional arguments
+\usepackage{xifthen}
+% define counters for reviewers and their points
+\newcounter{reviewer}
+\setcounter{reviewer}{0}
+\newcounter{point}[reviewer]
+\setcounter{point}{0}
+
+\newcounter{pointAE}
+\setcounter{pointAE}{0}
+
+\newcounter{pointEditor}
+\setcounter{pointEditor}{0}
+
+\renewcommand\thesection{AR.\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+
+\renewcommand{\paragraph}[1]{\noindent{{\textsf{#1}}}}
+\newcommand{\todo}[1]{\noindent{\textcolor{red}{\textbf{TODO}: \textsf{#1}}}}
+\newcommand{\nikhil}[1]{\noindent{\textcolor{teal}{\textbf{Nikhil}: \textsf{#1}}}}
+\newcommand{\coauthor}[1]{\noindent{\textcolor{orange}{\textbf{Coauthor}: \textsf{#1}}}}
+
+% This refines the format of how the reviewer/point reference will appear.
+\renewcommand{\thepoint}{\thereviewer.\arabic{point}} 
+\renewcommand{\thepointAE}{AE.\arabic{pointAE}} 
+\newcommand{\thepointE}{E.\arabic{pointEditor}} 
+
+% command declarations for reviewer points and our responses
+\newcommand{\reviewersection}{\stepcounter{reviewer} \bigskip \hrule
+\section{Response to Reviewer \thereviewer}}
+
+\newcommand{\sectionrev}[1]{\bigskip \hrule
+\section{{#1}}}
+
+\newenvironment{pointEditor}
+{\refstepcounter{pointEditor} \bigskip \noindent {\textbf{Point~\thepointE} } ---\ }
+{\par }
+
+\newenvironment{pointAE}
+{\refstepcounter{pointAE} \bigskip \noindent {\textbf{Point~\thepointAE} } ---\ }
+{\par }
+
+\newenvironment{point}
+{\refstepcounter{point} \bigskip \noindent {\textbf{Point~\thepoint} } ---\ }
+{\par }
+
+\newcommand{\shortpoint}[1]{\refstepcounter{point}  \bigskip \noindent 
+{\textbf{Point~\thepoint} } ---~#1\par }
+
+\newenvironment{reply}
+{\medskip \noindent \begin{sf}\textbf{Reply}:\  }
+{\medskip \end{sf}}
+
+\newcommand{\shortreply}[2][]{\medskip \noindent \begin{sf}\textbf{Reply}:\  #2
+\ifthenelse{\equal{#1}{}}{}{ \hfill \footnotesize (#1)}%
+\medskip \end{sf}}
+
+\title{Authors' response: ``''}
+
+\date{\vspace{-3em}}
+\author{}
+\usepackage[round, sort]{natbib}
+
+\begin{document}
+
+\maketitle
+
+\section{Summary of changes}
+\label{sec:summary}
+
+
+\section{Response to editor}
+
+\begin{pointEditor}
+\end{pointEditor}
+\begin{reply}
+\end{reply}
+
+
+\begin{pointEditor}
+
+\end{pointEditor}
+\begin{reply}
+\end{reply}
+
+
+\sectionrev{Response to AE}
+\begin{pointAE}
+
+\end{pointAE}
+\begin{reply}
+\end{reply}
+
+\begin{pointAE}
+
+\end{pointAE}
+\begin{reply}
+
+\begin{quote}
+	
+\end{quote}
+
+\end{reply}
+
+
+\reviewersection
+\begin{point}
+	
+\end{point}
+\begin{reply}
+\end{reply}
+
+%\subsection*{Minor}
+% Use the short-hand macros for one-liners.
+%\shortpoint{ Typo in line xy. }
+%\shortreply{ Fixed.}
+
+% Begin a new reviewer section
+\reviewersection
+
+\begin{point}
+\end{point}
+\begin{reply}
+\end{reply}
+
+
+\reviewersection
+
+\begin{point}
+\end{point}
+\begin{reply}
+\end{reply}
+
+
+\bibliographystyle{plainnat}
+\bibliography{bib}
+\end{document}
