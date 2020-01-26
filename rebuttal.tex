@@ -8,7 +8,7 @@
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage[utf8]{inputenc}
-\usepackage{fullpage,xcolor}
+\usepackage{fullpage,xcolor,xr}
 \usepackage[hidelinks=True]{hyperref}
 
 % package needed for optional arguments
@@ -24,6 +24,8 @@
 
 \newcounter{pointEditor}
 \setcounter{pointEditor}{0}
+
+\externaldocument{main.tex}
 
 \renewcommand\thesection{AR.\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
@@ -68,7 +70,7 @@
 \ifthenelse{\equal{#1}{}}{}{ \hfill \footnotesize (#1)}%
 \medskip \end{sf}}
 
-\title{Authors' response: ``''}
+\title{Round 1 Authors' response: ``''}
 
 \date{\vspace{-3em}}
 \author{}
@@ -123,10 +125,10 @@
 \begin{reply}
 \end{reply}
 
-%\subsection*{Minor}
-% Use the short-hand macros for one-liners.
-%\shortpoint{ Typo in line xy. }
-%\shortreply{ Fixed.}
+%%\subsection*{Minor}
+%% Use the short-hand macros for one-liners.
+%%\shortpoint{ Typo in line xy. }
+%%\shortreply{ Fixed.}
 
 % Begin a new reviewer section
 \reviewersection
